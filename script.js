@@ -1,9 +1,13 @@
 const serverIp = document.getElementById('server-ip');
 const tooltip = serverIp.querySelector('.copy-tooltip');
 
+// Get only the plain IP (ignore emoji & tooltip)
 serverIp.addEventListener('click', () => {
-  navigator.clipboard.writeText(serverIp.textContent)
+  const ipText = serverIp.querySelector('.ip-text').textContent.trim();
+
+  navigator.clipboard.writeText(ipText)
     .then(() => {
+      tooltip.textContent = 'Copied!';
       tooltip.classList.add('show');
       setTimeout(() => tooltip.classList.remove('show'), 1200);
     })
@@ -16,3 +20,7 @@ serverIp.addEventListener('click', () => {
       }, 1200);
     });
 });
+
+const emoji = serverIp.querySelector('.emoji');
+emoji.classList.add('glow');
+setTimeout(() => emoji.classList.remove('glow'), 500);
