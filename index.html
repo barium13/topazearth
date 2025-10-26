@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TopazEarth - Home</title>
+<link rel="icon" type="image/x-icon" href="/images/logo.png">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-container">
+    <!-- Hamburger Icon (shows on mobile) -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="https://map.topazearth.org/" target="_blank">Map</a></li>
+        <li><a href="/rules/">Rules</a></li>
+        <li><a href="/donate/">Donate</a></li>
+        <li><a href="/wiki/">Wiki</a></li>
+        <li><a href="https://discord.gg/VuZ5KWrhPd" target="_blank">Discord</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main class="hero" id="home">
+<div class="hero-content">
+<img src="/images/logo.png" alt="MyServer Logo" class="hero-logo">
+<h1>Welcome to TopazEarth</h1>
+<p>A friendly Towny Minecraft community where you can build, trade, explore, and rise to greatness!</p>
+<div class="server-info">
+  <span class="label">Server IP:</span>
+  <span id="server-ip" class="clickable-ip">
+    <span class="ip-text">play.topazearth.org</span>
+    <span class="emoji">📋</span>
+    <span class="copy-tooltip">Copied!</span>
+  </span>
+</div>
+</div>
+</main>
+
+
+<footer>
+<p>© <span id="year"></span> TopazEarth — All rights reserved — Created by Barium</p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('show');
+});
+</script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
