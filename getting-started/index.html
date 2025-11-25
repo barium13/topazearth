@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>TopazEarth - Getting Started</title>
-<link rel="icon" type="image/x-icon" href="/images/logo.png">
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TopazEarth - Getting Started</title>
+  <link rel="icon" type="image/x-icon" href="/images/logo.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+<body>
 <header class="navbar">
   <div class="nav-container">
     <!-- Hamburger Icon (shows on mobile) -->
@@ -30,42 +31,202 @@
     </nav>
   </div>
 </header>
-<main class="hero" id="home">
-<div class="hero-content">
-<img src="/images/logo.png" alt="MyServer Logo" class="hero-logo">
-<h1>Beginners Guide Coming Soon!</h1>
-<p>The Beginners Guide is currently under development.</p>
-</div>
+
+<main class="rules-hero">
+  <section class="rules-page">
+    <img src="/images/logo.png" alt="TopazEarth Logo" class="rules-logo">
+
+    <h1>Getting Started!</h1>
+    <p class="rules-subtext">
+      A quick guide to how towns, plots and other features work on TopazEarth.
+    </p>
+
+    <!-- Table of Contents -->
+    <h2>Quick Navigation</h2>
+    <ul class="rules-list">
+      <li><a href="#joining">1. Joining the Server</a></li>
+      <li><a href="#first-steps">2. First Steps on TopazEarth</a></li>
+      <li><a href="#towny-basics">3. Towny Basics</a></li>
+      <li><a href="#joining-town">4. Joining a Town</a></li>
+      <li><a href="#creating-town">5. Creating a Town</a></li>
+      <li><a href="#plots">6. Plots & Permissions</a></li>
+      <li><a href="#gold">7. Gold & Town Upkeep</a></li>
+      <li><a href="#claims-safety">8. Claim Safety Checklist</a></li>
+      <li><a href="#commands">9. Useful Commands</a></li>
+    </ul>
+
+    <hr>
+
+    <!-- 1. Joining -->
+    <h2 id="joining">1. Joining the Server</h2>
+    <p>TopazEarth is a Towny-based survival server.</p>
+    <ul>
+      <li><strong>IP:</strong> <code>play.topazearth.org</code></li>
+    </ul>
+    <p>Once you join, read the rules and any messages at spawn, then decide whether you want to
+      <strong>join an existing town</strong> or <strong>start your own</strong>.</p>
+
+    <!-- 2. First Steps -->
+    <h2 id="first-steps">2. First Steps on TopazEarth</h2>
+    <p>This isn’t a basic Minecraft tutorial; here’s what matters specifically for this server:</p>
+    <ul>
+      <li>Use the <a href="https://map.topazearth.org/" target="_blank">server map</a> to see towns, borders and open land.</li>
+      <li>We have a custom made plug-in called "The Depths". When you mine below Y=8, you will be teleported into a custom world with incredible caves. To get back out, either mine back up, or use /warp or /t spawn command.</li>
+      <li>Gather resources in whatever way you enjoy and start collecting <strong>gold</strong> (the server currency).</li>
+      <li>Say hello in chat – we have a very friendly and helpful community! Don't be scared to ask for help.</li>
+    </ul>
+
+    <!-- 3. Towny Basics -->
+    <h2 id="towny-basics">3. Towny Basics</h2>
+    <p>Towny is about turning normal chunks into protected land that belongs to a town.</p>
+    <ul>
+      <li><strong>Town:</strong> A group of claimed chunks led by a town <strong>leader</strong>.</li>
+      <li><strong>Resident:</strong> A player who belongs to a town.</li>
+      <li><strong>Plot:</strong> A single claimed chunk (16×16) inside a town where someone can build.</li>
+      <li><strong>Nation:</strong> Several towns grouped together (more advanced, optional).</li>
+    </ul>
+    <p>Use <code>/towny</code> in-game to see Towny’s own help menus if you want more detail.</p>
+
+    <!-- 4. Joining a Town -->
+    <h2 id="joining-town">4. Joining a Town</h2>
+    <p>Joining a town is the fastest way to get protected land and a community.</p>
+    <ul>
+      <li>Check <code>/t list</code> to see existing towns.</li>
+      <li>Use <code>/t &lt;townname&gt;</code> to view information about a town.</li>
+      <li>Ask in chat which towns are recruiting.</li>
+    </ul>
+    <p>Most of the time you’ll be invited or the town will be open:</p>
+    <ul>
+      <li>Open town: <code>/t join &lt;townname&gt;</code></li>
+      <li>Invite from a leader/assistant: follow the instructions in chat or use <code>/t join &lt;townname&gt;</code></li>
+    </ul>
+
+    <!-- 5. Creating a Town -->
+    <h2 id="creating-town">5. Creating a Town</h2>
+    <p>If you want to run your own place, you can found a town and become its <strong>leader</strong>.</p>
+    <ol>
+      <li>Make sure you have enough gold for the town creation cost, which is 25.</li>
+      <li>Stand in the chunk where you want your town spawn to be.</li>
+      <li>Run: <code>/t new &lt;TownName&gt;</code></li>
+    </ol>
+    <p>As town leader you’ll probably want to:</p>
+    <ul>
+      <li>Set the spawn: <code>/t set spawn</code></li>
+      <li>Claim more land: <code>/t claim</code></li>
+      <li>Invite players: <code>/t add &lt;player&gt;</code></li>
+      <li>Set a short description: <code>/t set board &lt;message&gt;</code></li>
+    </ul>
+
+    <!-- 6. Plots & Permissions -->
+    <h2 id="plots">6. Plots & Permissions</h2>
+    <p>Plots are where people actually build. Each plot has its own owner and permissions.</p>
+    <ul>
+      <li>See info about the plot you’re standing on: <code>/plot</code></li>
+      <li>Claim a plot that’s for sale: <code>/plot claim</code></li>
+      <li>Put your plot up for sale: <code>/plot fs &lt;price&gt;</code></li>
+      <li>Stop selling a plot: <code>/plot notforsale</code></li>
+    </ul>
+    <p>You can open your plot up to trusted friends:</p>
+    <ul>
+      <li>Add a friend: <code>/friend add &lt;player&gt;</code></li>
+      <li>Allow friends to build: <code>/plot set perm friend build on</code></li>
+    </ul>
+    <p>Leaders can also set default town permissions, but many towns handle this case-by-case.</p>
+
+    <!-- 7. Gold & Town Upkeep -->
+    <h2 id="gold">7. Gold & Town Upkeep</h2>
+    <p>TopazEarth uses <strong>gold</strong> as the currency for towns. Town creation, new claims and upkeep are all paid from the
+      <strong>town bank</strong>.</p>
+
+    <p>In short:</p>
+    <ul>
+      <li>Play normally and gather gold however you like.</li>
+      <li>Keep gold ingots in your inventory when you want to support your town.</li>
+      <li>Deposit gold into the town bank with:
+        <br><code>/t deposit &lt;amount&gt; or &lt;all&gt;</code>
+      </li>
+    </ul>
+    <p>The server automatically takes upkeep from the town bank, so towns should make sure there’s enough gold deposited to
+      cover their claims.</p>
+
+    <!-- 8. Claim Safety Checklist -->
+    <h2 id="claims-safety">8. Claim Safety Checklist</h2>
+    <p>Quick things worth checking regularly:</p>
+    <ul>
+      <li>Your main base is inside town claims (use <code>/towny map</code> to see borders).</li>
+      <li>Valuables, storage and farms are inside plots you own or trust.</li>
+      <li>You know who has permissions on your plots (friends / town / public).</li>
+      <li>Your town bank has enough gold to cover upkeep.</li>
+    </ul>
+
+    <!-- 9. Useful Commands -->
+    <h2 id="commands">9. Useful Commands</h2>
+
+    <h3>General</h3>
+    <ul>
+      <li><code>/towny</code> – Towny help menu</li>
+      <li><code>/towny map</code> – View nearby town claims</li>
+      <li><code>/res</code> – View your resident info</li>
+    </ul>
+
+    <h3>Towns</h3>
+    <ul>
+      <li><code>/t</code> – Info about your current town, including upkeep, available chunks and your balance.</li>
+      <li><code>/t list</code> – List all towns</li>
+      <li><code>/t spawn</code> – Teleport to your town spawn</li>
+      <li><code>/t new &lt;name&gt;</code> – Create a town</li>
+      <li><code>/t join &lt;town&gt;</code> – Join an open town</li>
+      <li><code>/t add &lt;player&gt;</code> – Invite a player (leader/assistant)</li>
+      <li><code>/t claim</code> – Claim the chunk you’re standing in (leader)</li>
+      <li><code>/t deposit &lt;amount&gt;</code> – Deposit gold into the town bank</li>
+    </ul>
+
+    <h3>Plots</h3>
+    <ul>
+      <li><code>/plot</code> – Info about the current plot</li>
+      <li><code>/plot claim</code> – Claim a plot that’s for sale</li>
+      <li><code>/plot fs &lt;price&gt;</code> – Put a plot up for sale</li>
+      <li><code>/plot notforsale</code> – Remove a plot from sale</li>
+    </ul>
+
+    <p>If anything here ever conflicts with in-game messages, the in-game help and
+      <a href="/rules/">server rules</a> always take priority.</p>
+
+    <p>Need help? Ask in chat or join the
+      <a href="https://discord.gg/VuZ5KWrhPd" target="_blank">Discord</a> — staff and players are usually around.</p>
+  </section>
 </main>
+
 <footer>
-<p>© <span id="year"></span> TopazEarth — All rights reserved — Created by Barium</p>
+  <p>© <span id="year"></span> TopazEarth — All rights reserved — Created by Barium</p>
 </footer>
 
 <script>
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
 
-// Toggle menu when hamburger is clicked
-hamburger.addEventListener('click', (e) => {
-  e.stopPropagation(); // Prevent click from bubbling up
-  hamburger.classList.toggle('active');
-  navLinks.classList.toggle('show');
-});
+  // Toggle menu when hamburger is clicked
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (
-    navLinks.classList.contains('show') &&
-    !navLinks.contains(e.target) &&
-    !hamburger.contains(e.target)
-  ) {
-    navLinks.classList.remove('show');
-    hamburger.classList.remove('active');
-  }
-});
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (
+      navLinks.classList.contains('show') &&
+      !navLinks.contains(e.target) &&
+      !hamburger.contains(e.target)
+    ) {
+      navLinks.classList.remove('show');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-<script src="script.js"></script>
-<body>
+<script src="/script.js"></script>
+</body>
+</html>
