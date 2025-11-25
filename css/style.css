@@ -311,7 +311,15 @@ footer {
   opacity: 0.9;
 }
 
+.rules-list a {
+  color: white !important;
+  text-decoration: none;
+}
 
+.rules-list a:hover {
+  color: var(--accent) !important;
+  transform: translateX(4px);
+}
 
 
 
@@ -345,7 +353,95 @@ footer {
   background: white;
   border-radius: 2px;
   transition: all 0.3s ease;
+
+  
 }
+
+/* ================================
+   GETTING STARTED / GUIDE IMPROVEMENTS
+=================================== */
+
+/* Improve readability inside guide pages */
+.rules-page {
+  line-height: 1.75;
+  font-size: 1.03rem;
+}
+
+/* Headings inside guide */
+.rules-page h2 {
+  margin-top: 2.2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.rules-page h3 {
+  margin-top: 1.4rem;
+  font-size: 1.25rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Clean divider lines */
+.rules-page hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  margin: 2.5rem 0 2rem 0;
+}
+
+/* Table of contents links */
+.rules-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.rules-list a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* Links inside the guide */
+.rules-page a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.rules-page a:hover {
+  text-decoration: underline;
+}
+
+/* Better spacing for lists */
+.rules-page ul,
+.rules-page ol {
+  margin-top: .5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.2rem;
+}
+
+.rules-page li {
+  margin-bottom: .45rem;
+}
+
+/* Slightly larger subtext under title */
+.rules-subtext {
+  font-size: 1rem;
+  margin-top: -0.8rem;
+}
+
+/* Make the content card smoother on mobile */
+@media (max-width: 768px) {
+  .rules-page {
+    padding: 1.5rem !important;
+    border-radius: 10px;
+  }
+
+  .rules-page h2 {
+    font-size: 1.55rem;
+  }
+}
+
 
 /* Turn hamburger into "X" when active */
 .hamburger.active span:nth-child(1) {
