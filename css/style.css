@@ -1,3 +1,7 @@
+/* =========================================
+   1. ROOT VARIABLES & GLOBAL RESET
+========================================= */
+
 :root {
   --bg: #0f1117;
   --accent: #aa0069;
@@ -6,19 +10,26 @@
   --nav-height: 64px;
   --radius: 12px;
   font-family: 'Poppins', system-ui, sans-serif;
-
 }
 
-  *  {box-sizing: border-box
-  }
+/* Global box-sizing */
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+/* Base HTML / Body */
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
   background: radial-gradient(circle at top, #10131c 0%, #080a0f 100%);
   color: var(--text);
 }
+
+/* =========================================
+   2. NAVBAR & TOP NAVIGATION
+========================================= */
 
 .navbar {
   position: fixed;
@@ -36,29 +47,20 @@ html, body {
   z-index: 1000;
 }
 
-.logo {
-  font-size: 2.25rem;
-  font-weight: 100;
-  font-family: sans-serif;
+/* Container for nav + hamburger */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
 }
 
-.hero-logo {
-  width: 120px;          
-  height: auto;
-  margin-bottom: -2rem;   
-  filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
-  animation: fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* Nav links list */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 3.0rem;
+  gap: 3rem;
   margin: 0;
   padding: 0;
 }
@@ -66,9 +68,9 @@ html, body {
 .nav-links a {
   text-decoration: none;
   color: white;
-  font-size: 1.0rem;
-  font-weight: 700; 
-  letter-spacing: 0.5px; 
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
@@ -77,17 +79,95 @@ html, body {
   transform: translateY(-1px);
 }
 
+/* Logo text (if used) */
+.logo {
+  font-size: 2.25rem;
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+/* =========================================
+   3. HAMBURGER ICON & MOBILE NAV
+========================================= */
+
+/* Hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: -0.5rem;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Turn hamburger into an "X" when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav behaviour */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.664);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    text-align: center;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.show {
+    transform: translateY(0);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* =========================================
+   4. HERO SECTION (HOME PAGE)
+========================================= */
+
 .hero {
   display: flex;
-  align-items: center; /* vertical centering */
-  justify-content: center; /* horizontal centering */
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  height: 100vh; /* full viewport height */
+  height: 100vh;
   padding: 0 1.5rem;
   position: relative;
   overflow: hidden;
 }
 
+/* Background image + tint */
 .hero::before {
   content: "";
   position: absolute;
@@ -97,7 +177,7 @@ html, body {
   height: 100%;
   background: url('/images/back.png') center/cover no-repeat;
   filter: blur(5px) brightness(0.6) saturate(0.8);
-  z-index: 0; /* behind content */
+  z-index: 0;
 }
 
 .hero::after {
@@ -110,6 +190,7 @@ html, body {
   background: rgba(0, 0, 0, 0.55);
 }
 
+/* Hero content */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -128,24 +209,104 @@ html, body {
   margin-bottom: 1.5rem;
 }
 
+/* Logo displayed in hero / rules */
+.hero-logo,
+.rules-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: -2rem;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  animation: fadeIn 1.2s ease;
+}
+
+/* Rules logo needs centred positioning + tweak margin */
+.rules-logo {
+  margin: 0 auto -2rem;
+  display: block;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   5. SERVER IP / INFO & FOOTER
+========================================= */
+
 .server-info {
   display: inline-flex;
   align-items: center;
-  gap: .6rem;
-  background: rgba(255,255,255,.08);
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 14px;
   color: var(--muted);
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
-.server-info .label { color: var(--muted); }
+.server-info .label {
+  color: var(--muted);
+}
 
 .server-info strong {
   margin-left: 0.4rem;
 }
 
+/* Clickable IP block */
+.server-info .clickable-ip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.server-info .clickable-ip:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.server-info .emoji {
+  opacity: 0.85;
+  font-size: 1rem;
+}
+
+/* “Copied!” tooltip */
+.server-info .copy-tooltip {
+  position: absolute;
+  bottom: -130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+
+.server-info .copy-tooltip.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(20px);
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -155,63 +316,23 @@ footer {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.server-info .clickable-ip {
-  display: inline-flex;
-  align-items: center;
-  gap: .35rem;
-  color: var(--text);
-  font-weight: 600;
-  cursor: pointer;
-  position: relative;
-  transition: color .2s ease, transform .2s ease;
-}
+/* =========================================
+   6. RULES / GUIDE SHARED LAYOUT
+========================================= */
 
-.server-info .clickable-ip:hover {
-  color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.server-info .emoji { opacity: .85; font-size: 1rem; }
-
-.server-info .copy-tooltip {
-  position: absolute;
-  bottom: -130%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--accent);
-  color: #fff;
-  padding: .3rem .6rem;
-  border-radius: 8px;
-  font-size: .8rem;
-  opacity: 0;
-  pointer-events: none;
-  white-space: nowrap;
-  transition: opacity .25s ease, transform .25s ease;
-  z-index: 10;
-}
-
-.server-info .copy-tooltip.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(20px);
-}
-
-/* =========================
-        Rules Page 
-========================= */
-
-/* Hero / Background */
+/* Hero wrapper used for rules & guide-style pages */
 .rules-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* scrollable, not vertically centered */
+  justify-content: flex-start;
   text-align: center;
-  padding: calc(var(--nav-height) + 4rem) 1.5rem 4rem 1.5rem; /* top + bottom spacing */
+  padding: calc(var(--nav-height) + 4rem) 1.5rem 4rem 1.5rem;
   position: relative;
   overflow: hidden;
 }
 
-/* Background Image Layer */
+/* Background image + tint (same as hero) */
 .rules-hero::before {
   content: "";
   position: absolute;
@@ -224,7 +345,6 @@ footer {
   z-index: 0;
 }
 
-/* Dark Tint Overlay */
 .rules-hero::after {
   content: "";
   position: absolute;
@@ -232,28 +352,30 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.55);
   z-index: 1;
 }
 
-/* Rules Card */
+/* Main frosted content card */
 .rules-page {
   position: relative;
-  z-index: 2; /* above background layers */
+  z-index: 2;
   max-width: 750px;
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
-  background: rgba(255,255,255,0.05); /* frosted card */
+  background: rgba(255, 255, 255, 0.05);
   border-radius: var(--radius);
   color: var(--text);
   backdrop-filter: blur(5px);
-  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
   text-align: left;
   animation: fadeIn 1.2s ease;
+  line-height: 1.75;
+  font-size: 1.03rem;
 }
 
-/* Heading */
+/* Title + intro text */
 .rules-page h1 {
   text-align: center;
   margin-bottom: 1rem;
@@ -266,108 +388,17 @@ footer {
   margin-bottom: 2rem;
 }
 
-/* Rules List */
-.rules-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
-  animation: fadeIn 1.2s ease;
-}
-
-.rules-list li {
-  padding: 0.6rem 0.8rem;
-  border-left: 3px solid white;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.05);
-  line-height: 1.7;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-/* Hover Effect */
-.rules-list li:hover {
-  background: rgba(255,255,255,0.1);
-  border-left-color: var(--accent);
-}
-
-/* Logo */
-.rules-logo {
-  width: 120px; 
-  height: auto;
-  margin: 0 auto -2rem;   
-  display: block;
-  filter: drop-shadow(0 0 8px rgba(0,0,0,0.4)); 
-  animation: fadeIn 1.2s ease; 
-}
-
-/* Sub-line */
+/* Subtext notes under title */
 .rules-subtext {
   color: var(--muted);
   font-style: italic;
-  margin-top: -1.3rem; 
-  margin-bottom: 0.8rem; 
+  margin-top: -0.8rem;
+  margin-bottom: 0.8rem;
   opacity: 0.9;
+  font-size: 1rem;
 }
 
-.rules-list a {
-  color: white !important;
-  text-decoration: none;
-}
-
-.rules-list a:hover {
-  color: var(--accent) !important;
-  transform: translateX(4px);
-}
-
-
-
-
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* ✅ keeps navbar centered */
-  width: 100%;
-  position: relative; /* allows positioning the hamburger later */
-}
-
-/* HAMBURGER ICON */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 20px;
-  cursor: pointer;
-  position: absolute;
-  left: -.5rem; /* places it at the right edge */
-  z-index: 1100;
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-
-  
-}
-
-/* ================================
-   GETTING STARTED / GUIDE IMPROVEMENTS
-=================================== */
-
-/* Improve readability inside guide pages */
-.rules-page {
-  line-height: 1.75;
-  font-size: 1.03rem;
-}
-
-/* Headings inside guide */
+/* Internal headings (guide sections, etc.) */
 .rules-page h2 {
   margin-top: 2.2rem;
   font-size: 1.8rem;
@@ -382,27 +413,26 @@ footer {
   font-weight: 600;
 }
 
-/* Clean divider lines */
+/* Divider lines */
 .rules-page hr {
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   margin: 2.5rem 0 2rem 0;
 }
 
-/* Table of contents links */
-.rules-list a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color .2s ease, transform .2s ease;
+/* Lists inside content card */
+.rules-page ul,
+.rules-page ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  padding-left: 1.2rem;
 }
 
-.rules-list a:hover {
-  color: var(--accent);
-  transform: translateX(4px);
+.rules-page li {
+  margin-bottom: 0.45rem;
 }
 
-/* Links inside the guide */
+/* Links inside guide/rules copy */
 .rules-page a {
   color: var(--accent);
   font-weight: 600;
@@ -412,25 +442,7 @@ footer {
   text-decoration: underline;
 }
 
-/* Better spacing for lists */
-.rules-page ul,
-.rules-page ol {
-  margin-top: .5rem;
-  margin-bottom: 1.5rem;
-  padding-left: 1.2rem;
-}
-
-.rules-page li {
-  margin-bottom: .45rem;
-}
-
-/* Slightly larger subtext under title */
-.rules-subtext {
-  font-size: 1rem;
-  margin-top: -0.8rem;
-}
-
-/* Make the content card smoother on mobile */
+/* Mobile tweaks for the card */
 @media (max-width: 768px) {
   .rules-page {
     padding: 1.5rem !important;
@@ -442,41 +454,72 @@ footer {
   }
 }
 
+/* =========================================
+   7. RULES LIST (MAIN RULES & SUB-RULES)
+========================================= */
 
-/* Turn hamburger into "X" when active */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+/* Main rules list container */
+.rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  animation: fadeIn 1.2s ease;
 }
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
+
+/* Top-level rules */
+.rules-list > li {
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid white;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  line-height: 1.7;
+  transition: background 0.2s, border-color 0.2s;
 }
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+
+/* Hover on main rules only */
+.rules-list > li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--accent);
 }
 
-/* ===== MOBILE MENU ===== */
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: var(--nav-height);
-    right: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.664);
-  backdrop-filter: blur(10px);
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem 0;
-    text-align: center;
-    transform: translateY(-120%);
-    transition: transform 0.3s ease;
-  }
+/* Links in any rules-list (e.g. TOC on guide page) */
+.rules-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
 
-  .nav-links.show {
-    transform: translateY(0);
-  }
+.rules-list a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
 
-  .hamburger {
-    display: flex;
-  }
+/* Sub-rule list styling (numbered 1.1, 1.2, etc.) */
+.sub-rules {
+  list-style: none;
+  margin-top: 0.5rem;
+  margin-left: 0.1rem;
+  padding-left: 0.9rem;
+  border-left: 0px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sub-rules li {
+  background: transparent;
+  padding: 0.2rem 0;
+  border-radius: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* No hover glow on sub-rules */
+.sub-rules li:hover {
+  background: transparent;
 }
